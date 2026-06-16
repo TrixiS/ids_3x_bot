@@ -87,10 +87,18 @@ func handleUpdate(ctx context.Context, bot *goram.Bot, update *goram.Update) err
 
 	message := update.Message
 
+	if message.From == nil {
+		return nil
+	}
+
 	if message.Text == "/start" {
 		return bot.SendMessageVoid(ctx, &goram.SendMessageRequest{
-			ChatID:      message.ChatID(),
-			Text:        phrases.StartMessageText,
+			ChatID: message.ChatID(),
+			Text: fmt.Sprintf(
+				phrases.StartMessageTextFmt,
+				message.From.ID,
+				message.From.Username,
+			),
 			ReplyMarkup: phrases.StartMarkup,
 		})
 	}

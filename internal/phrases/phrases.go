@@ -6,7 +6,8 @@ import (
 )
 
 const (
-	StartMessageText  = "Используйте кнопки в меню ниже или перешлите сообщение"
+	StartMessageTextFmt = `ID: <code>%d</code>
+Username: <code>%s</code>`
 	ChatButtonText    = "Чат"
 	ChannelButtonText = "Канал"
 	UserButtonText    = "Пользователь"
