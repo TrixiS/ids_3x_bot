@@ -100,6 +100,7 @@ func handleUpdate(ctx context.Context, bot *goram.Bot, update *goram.Update) err
 				message.From.Username,
 			),
 			ReplyMarkup: phrases.StartMarkup,
+			ParseMode:   goram.ParseModeHTML,
 		})
 	}
 
